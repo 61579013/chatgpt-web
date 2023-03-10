@@ -1,32 +1,52 @@
-import { ss } from '@/utils/storage'
+import {ss} from '@/utils/storage'
 
 const LOCAL_NAME = 'userStorage'
+const TOKEN_KEY = 'userToken'
 
 export interface UserInfo {
-  avatar: string
-  name: string
-  description: string
+	avatar: string
+	email: string
+	name: string
+	status: number
 }
 
 export interface UserState {
-  userInfo: UserInfo
+	userInfo: UserInfo
 }
 
-export function defaultSetting(): UserState {
-  return {
-    userInfo: {
-      avatar: 'https://raw.githubusercontent.com/Chanzhaoyu/chatgpt-web/main/src/assets/avatar.jpg',
-      name: 'ChenZhaoYu',
-      description: 'Star on <a href="https://github.com/Chanzhaoyu/chatgpt-bot" class="text-blue-500" target="_blank" >Github</a>',
-    },
-  }
+export function defaultUserState(): UserState {
+	return {
+		userInfo: {
+			avatar: '',
+			name: '',
+			email: '',
+			status: 0,
+		},
+	}
 }
 
-export function getLocalState(): UserState {
-  const localSetting: UserState | undefined = ss.get(LOCAL_NAME)
-  return { ...defaultSetting(), ...localSetting }
+export function getUserState(): UserState {
+	const localSetting: UserState | undefined = ss.get(LOCAL_NAME)
+	return {...defaultUserState(), ...localSetting}
 }
 
-export function setLocalState(setting: UserState): void {
-  ss.set(LOCAL_NAME, setting)
+export function setUserState(setting: UserState): void {
+	ss.set(LOCAL_NAME, setting)
 }
+
+export function removeUserState(): void {
+	ss.set(LOCAL_NAME, '')
+}
+
+export function getUserToken(): string {
+	return ss.get(TOKEN_KEY)
+}
+
+export function setUserToken(token: string): void {
+	ss.set(TOKEN_KEY, token)
+}
+
+export function removeUserToken(): void {
+	ss.set(TOKEN_KEY, '')
+}
+

@@ -1,5 +1,5 @@
 import type { AxiosProgressEvent, GenericAbortSignal } from 'axios'
-import { post } from '@/utils/request'
+import { get, post } from '@/utils/request'
 
 export function fetchChatAPI<T = any>(
   prompt: string,
@@ -17,6 +17,38 @@ export function fetchChatConfig<T = any>() {
   return post<T>({
     url: '/config',
   })
+}
+
+export function sendEmail<T = any>(
+	email: string,
+	token: string
+) {
+	return post<T>({
+		url: '/sendEmail',
+		data: {email, token},
+	})
+}
+
+export function accountLogin<T = any>(
+	email: string,
+	code: string
+) {
+	return post<T>({
+		url: '/login',
+		data: {email, code},
+	})
+}
+
+export function accountlogout<T = any>() {
+	return get<T>({
+		url: '/logout',
+	})
+}
+
+export function fetchUsetInfo<T = any>() {
+	return get<T>({
+		url: '/user'
+	})
 }
 
 export function fetchChatAPIProcess<T = any>(

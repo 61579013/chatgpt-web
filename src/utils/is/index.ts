@@ -53,3 +53,11 @@ export function isMap<T extends Map<any, any>>(value: T | unknown): value is T {
 export function isFile<T extends File>(value: T | unknown): value is T {
   return Object.prototype.toString.call(value) === '[object File]'
 }
+
+export function isEmail(email: string) :boolean{
+	if (email.length == 0){
+		return false
+	}
+	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	return emailRegex.test(email);
+}

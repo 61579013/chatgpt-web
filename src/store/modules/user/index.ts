@@ -1,22 +1,43 @@
-import { defineStore } from 'pinia'
-import type { UserInfo, UserState } from './helper'
-import { defaultSetting, getLocalState, setLocalState } from './helper'
+import type {UserInfo, UserState} from './helper'
+import {defineStore} from 'pinia'
+import {getUserState, setUserState} from './helper'
+import {fetchUsetInfo} from "@/api";
 
 export const useUserStore = defineStore('user-store', {
-  state: (): UserState => getLocalState(),
-  actions: {
-    updateUserInfo(userInfo: Partial<UserInfo>) {
-      this.userInfo = { ...this.userInfo, ...userInfo }
-      this.recordState()
-    },
+	state: (): UserState => getUserState(),
+	actions: {
+		getUserInfo() {
+			fetchUsetInfo().then(res => {
+				if (res.status === "Success") {
+					let userInfo = {
+						avatar: res.data.avatar,
+						name: res.data.name,
+						email: res.data.email,
+						status: res.data.status,
+					}
+					this.userInfo = userInfo;
+					setUserState({userInfo})
+					this.recordState()
+				}
+			})
+		},
 
-    resetUserInfo() {
-      this.userInfo = { ...defaultSetting().userInfo }
-      this.recordState()
-    },
+		updateUserInfo(userInfo: Partial<UserInfo>) {
+			this.userInfo = {...this.userInfo, ...userInfo}
+			this.recordState()
+		},
 
-    recordState() {
-      setLocalState(this.$state)
-    },
-  },
+		resetUserInfo() {
+			this.userInfo = {
+				'avatar': '',
+				'name': '',
+				'email': '',
+				'status': 0,
+			}
+		},
+
+		recordState() {
+			setUserState(this.$state)
+		},
+	},
 })

@@ -45,31 +45,9 @@ router.post('/config', async (req, res) => {
   }
 })
 
-router.post('/session', async (req, res) => {
-  try {
-    const AUTH_SECRET_KEY = process.env.AUTH_SECRET_KEY
-    const hasAuth = typeof AUTH_SECRET_KEY === 'string' && AUTH_SECRET_KEY.length > 0
-    res.send({ status: 'Success', message: '', data: { auth: hasAuth } })
-  }
-  catch (error) {
-    res.send({ status: 'Fail', message: error.message, data: null })
-  }
-})
-
-router.post('/verify', async (req, res) => {
-  try {
-    const { token } = req.body as { token: string }
-    if (!token)
-      throw new Error('Secret key is empty')
-
-    if (process.env.AUTH_SECRET_KEY !== token)
-      throw new Error('密钥无效 | Secret key is invalid')
-
-    res.send({ status: 'Success', message: 'Verify successfully', data: null })
-  }
-  catch (error) {
-    res.send({ status: 'Fail', message: error.message, data: null })
-  }
+router.post('/sendEmail', async (req, res) => {
+	// 这里自行添加发送邮寄逻辑
+	res.send({ status: 'Success', message: '尊敬的用户，您当前正在注册或登录网站，验证码为：849273，有效期为 10 分钟', data: {  } })
 })
 
 app.use('', router)

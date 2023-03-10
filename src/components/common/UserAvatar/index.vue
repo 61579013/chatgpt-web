@@ -1,40 +1,74 @@
-<script setup lang='ts'>
-import { computed } from 'vue'
-import { NAvatar } from 'naive-ui'
-import { useUserStore } from '@/store'
+<script lang='ts' setup>
+import {computed, defineAsyncComponent, ref} from 'vue'
+import {NAvatar, NButton, useDialog, useMessage} from 'naive-ui'
+import {useUserStore} from '@/store'
 import defaultAvatar from '@/assets/avatar.jpg'
-import { isString } from '@/utils/is'
+import {accountlogout} from "@/api";
+import {removeUserState, removeUserToken} from "@/store/modules/user/helper";
 
+const message = useMessage()
+
+const dialog = useDialog()
 const userStore = useUserStore()
-
 const userInfo = computed(() => userStore.userInfo)
+
+const Login = defineAsyncComponent(() => import('@/components/common/Account/index.vue'))
+const show = ref(true)
+
+const logout = async () => {
+	dialog.warning({
+		title: '退出登录',
+		content: '是否要退出当前账号',
+		positiveText: '确认',
+		negativeText: '取消',
+		onPositiveClick: () => {
+			accountlogout().then(res => {
+				if (res.status === "Success") {
+					removeUserToken()
+					removeUserState()
+					userStore.resetUserInfo()
+				}
+			})
+		},
+	})
+}
+
 </script>
 
 <template>
-  <div class="flex items-center overflow-hidden">
-    <div class="w-10 h-10 overflow-hidden rounded-full shrink-0">
-      <template v-if="isString(userInfo.avatar) && userInfo.avatar.length > 0">
-        <NAvatar
-          size="large"
-          round
-          :src="userInfo.avatar"
-          :fallback-src="defaultAvatar"
-        />
-      </template>
-      <template v-else>
-        <NAvatar size="large" round :src="defaultAvatar" />
-      </template>
-    </div>
-    <div class="flex-1 min-w-0 ml-2">
-      <h2 class="overflow-hidden font-bold text-md text-ellipsis whitespace-nowrap">
-        {{ userInfo.name ?? 'ChenZhaoYu' }}
-      </h2>
-      <p class="overflow-hidden text-xs text-gray-500 text-ellipsis whitespace-nowrap">
-        <span
-          v-if="isString(userInfo.description) && userInfo.description !== ''"
-          v-html="userInfo.description"
-        />
-      </p>
-    </div>
-  </div>
+	<div class="flex items-center">
+		<div class="w-10 h-10 overflow-hidden rounded-full">
+			<template v-if="userInfo?.avatar?.length > 0">
+				<NButton text>
+					<NAvatar
+						:fallback-src="defaultAvatar"
+						:src="userInfo.avatar"
+						round
+						size="large"
+					/>
+				</NButton>
+			</template>
+			<template v-else>
+				<NButton text @click="show = true">
+					<NAvatar :src="defaultAvatar" round size="large"/>
+				</NButton>
+			</template>
+		</div>
+		<div class="ml-2">
+
+			<NButton v-if="userInfo.status === 1" text @click="logout">
+				<h2 class="font-bold text-md">
+					退出登录
+				</h2>
+			</NButton>
+
+			<NButton v-else text @click="show = true">
+				<h2 class="font-bold text-md">
+					登录/注册
+				</h2>
+			</NButton>
+
+			<Login v-if="userInfo.status === 0" v-model:visible="show"/>
+		</div>
+	</div>
 </template>
