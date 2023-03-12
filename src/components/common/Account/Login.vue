@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import {computed, ref} from 'vue'
-import Vcode from "vue3-puzzle-vcode"
+import Vcode from "slide-verify-code"
 import {NButton, NInput, useMessage} from 'naive-ui'
 import {v4 as uuidv4} from 'uuid';
 import {isEmail} from '@/utils/is'
@@ -9,6 +9,7 @@ import {accountLogin, sendEmail} from '@/api'
 import {useUserStore} from "@/store";
 import {setUserToken} from "@/store/modules/user/helper";
 
+const userStore = useUserStore()
 const {isMobile} = useBasicLayout()
 const message = useMessage()
 
@@ -93,17 +94,17 @@ const countDown = () => {
 
 const onKeyUp = () => {
 	disabled.value.token = !isEmail(loginForm.value.email);
-	disabled.value.submit = !loginForm.value.code.length;
+	disabled.value.submit = !isEmail(loginForm.value.email) || !loginForm.value.code.length;
 }
-const userStore = useUserStore()
-const onSubmit = async () => {
+
+const onSubmit = () => {
 	if (!isEmail(loginForm.value.email)) {
 		emailRef.value?.focus()
 	}
 	if (!loginForm.value.code.length) {
 		codeRef.value?.focus()
 	}
-	await accountLogin(loginForm.value.email.toLowerCase(), loginForm.value.code).then(res => {
+	accountLogin(loginForm.value.email.toLowerCase(), loginForm.value.code).then(res => {
 		if (res.status === "Success") {
 			emit("closeModel")
 			setUserToken(res.data.token)
