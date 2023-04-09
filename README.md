@@ -36,7 +36,7 @@
 - 卡密套餐管理、卡密生成和核销
 
 ## 部署
-> 服务器无需安装任何环境，直接运行静态资源 和 二进制打包文件即可，如果需要绑定域名，只需要安装nginx
+> 服务器无需安装任何环境，只需要安装nginx, 直接运行静态资源 和 二进制打包文件
 
 将数据库文件 `db.sql` 文件导入到 `mysql`，修改 `.env` 数据库配置信息和邮箱配置信息
 
@@ -48,15 +48,15 @@ location /api/{
     proxy_pass http://127.0.0.1:3000;
 }
 ```
-访问 chat.baidu.com 即可访问前台
+访问 `chat.baidu.com` 即可访问前台
 
 将管理端域名绑定到 `admin` 目录，如 `admin.baidu.com`，`nginx` 配置如下：
-访问 chat.baidu.com 即可访问管理后台，默认账号 `245629560@qq.com`, 密码 `123456` 
 ```shell
 location /backend/{
     proxy_pass http://127.0.0.1:3000/backend/;
 }
 ```
+访问 `chat.baidu.com` 即可访问管理后台，默认账号 `245629560@qq.com`, 密码 `123456` 
 
 ## 鸣谢
 [chatgpt-web 原项目](https://github.com/Chanzhaoyu/chatgpt-web)  
