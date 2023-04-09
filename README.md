@@ -1,6 +1,28 @@
-# ChatGPT Web VIP 版
+# ChatGPT Web
 
-使用 express 和 vue3 搭建的 ChartGPT 演示网页
+客户端
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/13517412/230752830-06bcb883-1a27-48de-8162-b42f2abb2d1e.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752840-efd890fb-0457-4c2a-a8e3-cde93948f99e.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752867-84c6e619-a151-4f7d-848a-120ccc64d5cf.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752872-b1670e7e-cce9-4744-becb-f0d657a58598.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752885-776f357c-2c4a-4e1e-aaf5-f02ca6551be2.png">
+管理端
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/13517412/230752894-68024e88-2b77-47ba-83f4-c7d38589ede8.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752907-586329a6-e395-48ef-9bdf-cce8b8610cdf.png">
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/13517412/230752920-87d24962-9452-496a-ad6f-7d67252a49e8.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752936-8460e759-6ace-4a89-a146-8d6c5380a536.png">
+<img width="1437" alt="image" src="https://user-images.githubusercontent.com/13517412/230752949-4a92334d-cc69-4d09-b587-a44e92845c57.png">
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/13517412/230752958-c2a67800-84bd-4c45-b98e-a629042ee5c7.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752964-b57da9e1-1a42-4967-ae6c-1da1c64c547e.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752973-2dac4562-51af-4fe5-9138-0331b228cfe6.png">
+<img width="1439" alt="image" src="https://user-images.githubusercontent.com/13517412/230752984-67ff808f-c87e-44f0-9957-bfcb0b6c1802.png">
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/13517412/230753000-708e2ad7-10e8-4cdc-843e-b52f3cb22656.png">
+<img width="1436" alt="image" src="https://user-images.githubusercontent.com/13517412/230753011-125fe575-8947-4d1e-8496-b3afb4f2db7e.png">
+
+为了方便大家沟通交流，同步消息，建了QQ群，目前已有828人，群号 145225165，申请入群后请及时回复验证码，否则360秒后会被群机器人自动移除群。
+![image](https://user-images.githubusercontent.com/13517412/230753075-0d815446-3e24-4a09-bee4-e3fa59dec76e.png)
+<img width="679" alt="image" src="https://user-images.githubusercontent.com/13517412/230753144-0c5ea0ee-55a6-4d5d-8282-53fcbc9355c7.png">
+
 
 ### 功能
 
