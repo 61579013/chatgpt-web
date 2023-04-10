@@ -43,7 +43,8 @@
 
 将数据库文件 `db.sql` 文件导入到 `mysql`，修改 `.env` 数据库配置信息和邮箱配置信息
 
-在 `linux` 服务器上运行 `nohup ./goravel &` 启动后端服务
+在 `linux` 服务器上运行 `nohup ./goravel &` 启动后端服务，运行 `curl http://127.0.0.1:3000` ，如果出现 
+ `{"Hello":"Goravel"}` 说明后端服务启动成功
 
 将用户端绑定到 `chatgpt` 目录，如 `chat.baidu.com`，`nginx` 配置如下：
 ```shell
