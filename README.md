@@ -46,16 +46,24 @@
 在 `linux` 服务器上运行 `nohup ./goravel &` 启动后端服务，运行 `curl http://127.0.0.1:3000` ，如果出现 
  `{"Hello":"Goravel"}` 说明后端服务启动成功
 
-将用户端绑定到 `chatgpt` 目录，如 `chat.baidu.com`，`nginx` 配置如下：
+将用户端绑定到 `chatgpt` 目录，如 `chat.baidu.com`，`nginx` 主要配置如下：
 ```shell
+listen 80;
+server_name chat.baidu.com;
+index index.php index.html index.htm default.php default.htm default.html;
+root /www/wwwroot/chat-gpt/public/chatgpt;
 location /api/{
     proxy_pass http://127.0.0.1:3000;
 }
 ```
 访问 `chat.baidu.com` 即可访问前台
 
-将管理端域名绑定到 `admin` 目录，如 `admin.baidu.com`，`nginx` 配置如下：
+将管理端域名绑定到 `admin` 目录，如 `admin.baidu.com`，`nginx` 主要配置如下：
 ```shell
+listen 80;
+server_name admin.baidu.com;
+index index.php index.html index.htm default.php default.htm default.html;
+root /www/wwwroot/chat-gpt/public/admin;
 location /backend/{
     proxy_pass http://127.0.0.1:3000/backend/;
 }
