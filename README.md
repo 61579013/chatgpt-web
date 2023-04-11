@@ -39,11 +39,12 @@
 - 卡密套餐管理、卡密生成和核销
 
 ## 部署
-> 服务器无需安装任何环境，只需要安装nginx, 直接运行静态 `html` 服务 和 二进制打包文件
+> 服务器无需安装任何环境，只需要安装 nginx 和 mysql, 直接运行静态 `html` 服务 和 二进制打包文件
 
-将数据库文件 `db.sql` 文件导入到 `mysql`，修改 `.env` 里数据库配置信息和邮箱配置信息
+将数据库文件 `db.sql` 文件导入到 `mysql`，修改 `.env` 里数据库配置信息和邮箱配置信息，其他配置信息无需改动
 
-服务器放行 `3000` 端口，在 `linux` 服务器上运行 `nohup ./goravel &` 启动后端服务，运行 `curl http://127.0.0.1:3000` ，如果出现 
+服务器放行 `3000` 端口，进入 `service` 目录，根据自己的系统选择对应的服务端，下面以 `linux` 环境为例，
+在 `linux` 服务器上运行 `nohup ./linux &` 启动后端服务，运行 `curl http://127.0.0.1:3000` ，如果出现 
  `{"Hello":"Gochat 后端服务启动成功"}` 说明后端服务启动成功
 
 将用户端绑定到 `chatgpt` 目录，如 `chat.baidu.com`，`nginx` 主要配置如下：
@@ -51,7 +52,7 @@
 listen 80;
 server_name chat.baidu.com;
 index index.php index.html index.htm default.php default.htm default.html;
-root /www/wwwroot/chat-gpt/public/chatgpt;
+root /www/wwwroot/chatgpt/fontend;
 location /api/{
     proxy_pass http://127.0.0.1:3000;
 }
@@ -63,7 +64,7 @@ location /api/{
 listen 80;
 server_name admin.baidu.com;
 index index.php index.html index.htm default.php default.htm default.html;
-root /www/wwwroot/chat-gpt/public/admin;
+root /www/wwwroot/chatgpt/admin;
 location /backend/{
     proxy_pass http://127.0.0.1:3000/backend/;
 }
