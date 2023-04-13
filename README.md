@@ -53,6 +53,13 @@ listen 80;
 server_name chat.baidu.com;
 index index.php index.html index.htm default.php default.htm default.html;
 root /www/wwwroot/chatgpt/fontend;
+
+location / {
+    root /www/wwwroot/chatgpt/fontend/;
+    index index.html index.htm;
+    try_files $uri $uri/ /index.html;
+}
+
 location /api/{
     proxy_pass http://127.0.0.1:3000;
 }
@@ -65,6 +72,13 @@ listen 80;
 server_name admin.baidu.com;
 index index.php index.html index.htm default.php default.htm default.html;
 root /www/wwwroot/chatgpt/admin;
+
+location / {
+    root /www/wwwroot/chatgpt/admin/;
+    index index.html index.htm;
+    try_files $uri $uri/ /index.html;
+}
+
 location /backend/{
     proxy_pass http://127.0.0.1:3000/backend/;
 }
