@@ -85,6 +85,7 @@ location /backend/{
 ```
 访问 `chat.baidu.com` 即可访问管理后台，默认账号 `245629560@qq.com`, 密码 `123456` 
 
+> 注意 nginx 修改配置后需要重启才能生效
 ## 鸣谢
 [chatgpt-web 原项目](https://github.com/Chanzhaoyu/chatgpt-web)  
 
