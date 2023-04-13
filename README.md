@@ -26,7 +26,6 @@
 ![image](https://user-images.githubusercontent.com/13517412/230753075-0d815446-3e24-4a09-bee4-e3fa59dec76e.png)
 <img width="679" alt="image" src="https://user-images.githubusercontent.com/13517412/230753144-0c5ea0ee-55a6-4d5d-8282-53fcbc9355c7.png">
 
-
 ### 功能
 
 - 登录注册，管理后台可以设置首次登录赠送免费提问次数
@@ -39,13 +38,17 @@
 - 卡密套餐管理、卡密生成和核销
 
 ## 部署
-> 服务器无需安装任何环境，只需要安装 nginx 和 mysql, 直接运行静态 `html` 服务 和 二进制打包文件
+> 服务器无需安装任何环境，只需要安装 nginx 和 mysql, nginx 修改配置后需要重启才能生效
 
 服务器放行 `3000` 端口，将数据库文件 `db.sql` 文件导入到 `mysql`，修改 `service` 目录下 `.env` 里数据库配置信息和邮箱配置信息，其他配置信息无需改动
 
 根据自己的系统选择对应的服务端，下面以 `linux` 环境为例，
-进入 `service` 目录，运行 `./linux.bin` 启动后端服务，运行 `curl http://127.0.0.1:3000` ，如果出现 
- `{"Hello":"Gochat 后端服务启动成功"}` 说明后端服务启动成功
+进入 `service` 目录，运行 `./linux.bin` 启动后端服务
+运行 `curl http://127.0.0.1:3000`，如果出现 
+```shell
+{"Hello":"Gochat 后端服务启动成功"}
+```
+说明后端服务启动成功
 
 将用户端绑定到 `chatgpt` 目录，如 `chat.baidu.com`，`nginx` 主要配置如下：
 ```shell
@@ -85,7 +88,6 @@ location /backend/{
 ```
 访问 `chat.baidu.com` 即可访问管理后台，默认账号 `245629560@qq.com`, 密码 `123456` 
 
-> 注意 nginx 修改配置后需要重启才能生效
 ## 鸣谢
 [chatgpt-web 原项目](https://github.com/Chanzhaoyu/chatgpt-web)  
 
