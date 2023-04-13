@@ -55,10 +55,9 @@
 listen 80;
 server_name chat.baidu.com;
 index index.php index.html index.htm default.php default.htm default.html;
-root /www/wwwroot/chatgpt/fontend;
 
 location / {
-    root /www/wwwroot/chatgpt/fontend/;
+    root /www/wwwroot/chatgpt/fontend/; // 改成自己客户端项目实际路径
     index index.html index.htm;
     try_files $uri $uri/ /index.html;
 }
@@ -74,10 +73,9 @@ location /api/{
 listen 80;
 server_name admin.baidu.com;
 index index.php index.html index.htm default.php default.htm default.html;
-root /www/wwwroot/chatgpt/admin;
 
 location / {
-    root /www/wwwroot/chatgpt/admin/;
+    root /www/wwwroot/chatgpt/admin/; // 改成自己管理端项目实际路径
     index index.html index.htm;
     try_files $uri $uri/ /index.html;
 }
