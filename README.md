@@ -44,7 +44,7 @@
 服务器放行 `3000` 端口，将数据库文件 `db.sql` 文件导入到 `mysql`，修改 `service` 目录下 `.env` 里数据库配置信息和邮箱配置信息，其他配置信息无需改动
 
 根据自己的系统选择对应的服务端，下面以 `linux` 环境为例，
-在 `linux` 服务器上运行 `nohup ./service/linux.bin &` 启动后端服务，运行 `curl http://127.0.0.1:3000` ，如果出现 
+进入 `service` 目录，运行 `./linux.bin` 启动后端服务，运行 `curl http://127.0.0.1:3000` ，如果出现 
  `{"Hello":"Gochat 后端服务启动成功"}` 说明后端服务启动成功
 
 将用户端绑定到 `chatgpt` 目录，如 `chat.baidu.com`，`nginx` 主要配置如下：
