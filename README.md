@@ -86,6 +86,14 @@ location /backend/{
 ```
 访问 `chat.baidu.com` 即可访问管理后台，默认账号 `245629560@qq.com`, 密码 `123456` 
 
+## 更新日志
+### v1.0.3
+- 修复无法流式输出的bug
+- 修复无法关联上下文的bug，目前默认关联最近5条历史记录
+- 修复管理后台只有一个 `key` 时报错的 bug
+- 修复会员多次叠加购买次卡时次数没有叠加的 bug
+- 管理后台仪表盘显示真实数据
+- 管理后台会员管理增加删除操作
 ## 鸣谢
 [chatgpt-web 原项目](https://github.com/Chanzhaoyu/chatgpt-web)  
 
