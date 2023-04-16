@@ -63,6 +63,11 @@ location / {
 }
 
 location /api/{
+    proxy_cache off;
+    proxy_cache_bypass $http_pragma;
+    proxy_cache_revalidate on;
+    proxy_http_version 1.1;
+    proxy_buffering off;
     proxy_pass http://127.0.0.1:3000;
 }
 ```
@@ -90,6 +95,7 @@ location /backend/{
 ### v1.0.3
 - 修复无法流式输出的bug
 - 修复无法关联上下文的bug，目前默认关联最近5条历史记录
+- 优化会员登录状态判断
 - 修复管理后台只有一个 `key` 时报错的 bug
 - 修复会员多次叠加购买次卡时次数没有叠加的 bug
 - 管理后台仪表盘显示真实数据
