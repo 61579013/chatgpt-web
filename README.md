@@ -143,6 +143,7 @@ location /backend/{
     说明后端服务启动成功
 
 ## 关联链接
+自建代理开源项目：https://github.com/easychen/openai-api-proxy/
 百度敏感词过滤接口申请：https://console.bce.baidu.com/ai/?fromai=1#/ai/antiporn/overview/resource/getFree
 
 ## 更新日志
