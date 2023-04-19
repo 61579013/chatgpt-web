@@ -116,8 +116,7 @@ location /backend/{
 - 上传源码
 
   点击宝塔左侧文件菜单，将源码上传到 `www/wwwroot` 目录，如下图
-  ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/image.png)
-
+  ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/001.png)
 - 导入数据库
   
   点击宝塔左侧数据库菜单，点击添加数据库，填写数据库信息，并记下数据库密码，如下图
@@ -134,14 +133,14 @@ location /backend/{
 
 - 启动服务端
 
-点击宝塔左侧网站菜单，选择 `go项目`，添加 `go项目`，选择要运行的二进制文件
-![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/008.png)
-![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/009.png)
-点击宝塔左侧终端菜单，输入 `curl http://127.0.0.1:3000`，如果出现
-```shell
-{"Hello":"Gochat 后端服务启动成功"}
-```
-说明后端服务启动成功
+    点击宝塔左侧网站菜单，选择 `go项目`，添加 `go项目`，选择要运行的二进制文件
+    ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/008.png)
+    ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/009.png)
+    点击宝塔左侧终端菜单，输入 `curl http://127.0.0.1:3000`，如果出现
+    ```shell
+    {"Hello":"Gochat 后端服务启动成功"}
+    ```
+    说明后端服务启动成功
 
 ## 更新日志
 ### v1.0.4
