@@ -142,6 +142,9 @@ location /backend/{
     ```
     说明后端服务启动成功
 
+## 关联链接
+百度敏感词过滤接口申请：https://console.bce.baidu.com/ai/?fromai=1#/ai/antiporn/overview/resource/getFree
+
 ## 更新日志
 ### v1.0.4
 - 增加百度敏感词过滤支持
