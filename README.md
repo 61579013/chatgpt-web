@@ -114,22 +114,23 @@ location /backend/{
 
 ## 宝塔部署
 - 上传源码
+
   点击宝塔左侧文件菜单，将源码上传到 `www/wwwroot` 目录，如下图
   ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/image.png)
 
 - 导入数据库
-
-点击宝塔左侧数据库菜单，点击添加数据库，填写数据库信息，并记下数据库密码，如下图
-![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/002.png)
-点击提交后找到新添加的数据库，点击导入按钮弹出上传框，点击从本地上传，选择 `db.sql` 文件进行上传
-![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/003.png)
-![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/004.png)
-![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/005.png)
+  
+  点击宝塔左侧数据库菜单，点击添加数据库，填写数据库信息，并记下数据库密码，如下图
+  ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/002.png)
+  点击提交后找到新添加的数据库，点击导入按钮弹出上传框，点击从本地上传，选择 `db.sql` 文件进行上传
+  ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/003.png)
+  ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/004.png)
+  ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/005.png)
 
 - 修改配置信息
 
-点击宝塔左侧文件菜单，找到 `service/.env` 配置文件，修改里面的数据库配置信息、邮箱配置信息和百度文本审核配置信息
-![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/007.png)
+    点击宝塔左侧文件菜单，找到 `service/.env` 配置文件，修改里面的数据库配置信息、邮箱配置信息和百度文本审核配置信息
+    ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/007.png)
 
 - 启动服务端
 
