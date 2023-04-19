@@ -30,7 +30,6 @@
 
 <img width="1279" alt="image" src="https://user-images.githubusercontent.com/13517412/232735670-2d277962-1312-4900-b6f1-248531835a9e.png">
 
-<img width="1438" alt="image" src="https://user-images.githubusercontent.com/13517412/230753000-708e2ad7-10e8-4cdc-843e-b52f3cb22656.png">
 <img width="1436" alt="image" src="https://user-images.githubusercontent.com/13517412/230753011-125fe575-8947-4d1e-8496-b3afb4f2db7e.png">
 
 为了方便大家沟通交流，同步消息，建了QQ群，目前已有 `1135` 人，群号 `145225165`，申请入群后请及时回复验证码，否则360秒后会被群机器人自动移除群。
@@ -114,7 +113,34 @@ location /backend/{
 访问 `chat.baidu.com` 即可访问管理后台，默认账号 `245629560@qq.com`, 密码 `123456`
 
 ## 宝塔部署
-- 待完善
+- 上传源码
+  点击宝塔左侧文件菜单，将源码上传到 `www/wwwroot` 目录，如下图
+  ![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/image.png)
+
+- 导入数据库
+
+点击宝塔左侧数据库菜单，点击添加数据库，填写数据库信息，并记下数据库密码，如下图
+![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/002.png)
+点击提交后找到新添加的数据库，点击导入按钮弹出上传框，点击从本地上传，选择 `db.sql` 文件进行上传
+![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/003.png)
+![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/004.png)
+![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/005.png)
+
+- 修改配置信息
+
+点击宝塔左侧文件菜单，找到 `service/.env` 配置文件，修改里面的数据库配置信息、邮箱配置信息和百度文本审核配置信息
+![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/007.png)
+
+- 启动服务端
+
+点击宝塔左侧网站菜单，选择 `go项目`，添加 `go项目`，选择要运行的二进制文件
+![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/008.png)
+![](https://gouguoyin.oss-cn-beijing.aliyuncs.com/tools/images/2130706433/20230419/009.png)
+点击宝塔左侧终端菜单，输入 `curl http://127.0.0.1:3000`，如果出现
+```shell
+{"Hello":"Gochat 后端服务启动成功"}
+```
+说明后端服务启动成功
 
 ## 更新日志
 ### v1.0.4
