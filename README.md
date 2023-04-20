@@ -146,7 +146,7 @@ location /backend/{
     说明后端服务启动成功
 
 ## 关联链接
-openai plus账号推荐购买渠道：https://tomfk.top/buy/14
+openai 独享账号推荐购买渠道：https://tomfk.top/buy/14
 
 自建代理开源项目：https://github.com/easychen/openai-api-proxy/
 
